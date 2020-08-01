@@ -2,8 +2,9 @@ package Data;
 
 import java.util.Random;
 
-public class DataInfoVoid {
-    private DataInfoVoid (){
+public class InvalidDataInfo {
+
+    private InvalidDataInfo() {
     }
 
     public static class CardFields {
