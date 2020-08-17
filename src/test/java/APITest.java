@@ -1,6 +1,7 @@
-import API.FieldsForApi;
+import API.FieldsApiDTO;
 import API.MethodsApi;
 import Data.Info;
+import io.qameta.allure.Issue;
 import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,11 +18,11 @@ public class APITest {
         SQL.clearTables();
     }
 
-
+    @Issue("4")
     @ParameterizedTest
     @CsvFileSource(resources = "/RequestDataApi.csv", numLinesToSkip = 1)
     void paymentApprovedCardTest(String number, int typeConnection, int statusCode, String status) throws Exception {
-        FieldsForApi fieldsApiDTO = new FieldsForApi(number,
+        FieldsApiDTO fieldsApiDTO = new FieldsApiDTO(number,
                 Integer.parseInt(Info.getRandomMonth()),
                 Integer.parseInt(Info.getRandomYear()),
                 Info.getRandomOwner(),
@@ -29,6 +30,6 @@ public class APITest {
 
         ValidatableResponse response = MethodsApi.payRequest(fieldsApiDTO, typeConnection);
         response.statusCode(statusCode);
-        response.body("status", (ResponseAwareMatcher) response1 -> equalTo(status));
+        response.body("status", (ResponseAwareMatcher<io.restassured.response.Response>) response1 -> equalTo(status));
     }
 }

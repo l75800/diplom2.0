@@ -24,7 +24,7 @@ public class MethodsApi {
     private MethodsApi() {
     }
 
-    public static ValidatableResponse payRequest(FieldsForApi fieldsForApi, int typeConnection) throws Exception {
+    public static ValidatableResponse payRequest(FieldsApiDTO apiDTO, int typeConnection) throws Exception {
         String url;
         if (typeConnection == payment) {
             url = "/payment";
@@ -38,7 +38,7 @@ public class MethodsApi {
         }
         return given()
                 .spec(requestSpec)
-                .body(fieldsForApi)
+                .body(apiDTO)
                 .when()
                 .post(url)
                 .then();
