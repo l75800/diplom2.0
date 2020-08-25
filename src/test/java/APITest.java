@@ -1,7 +1,6 @@
 import API.FieldsApiDTO;
 import API.MethodsApi;
 import Data.Info;
-import io.qameta.allure.Issue;
 import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.BeforeEach;
