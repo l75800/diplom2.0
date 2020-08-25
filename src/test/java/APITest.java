@@ -18,7 +18,7 @@ public class APITest {
         SQL.clearTables();
     }
 
-    @Issue("4")
+
     @ParameterizedTest
     @CsvFileSource(resources = "/RequestDataApi.csv", numLinesToSkip = 1)
     void paymentApprovedCardTest(String number, int typeConnection, int statusCode, String status) throws Exception {
@@ -30,6 +30,6 @@ public class APITest {
 
         ValidatableResponse response = MethodsApi.payRequest(fieldsApiDTO, typeConnection);
         response.statusCode(statusCode);
-        response.body("status", (ResponseAwareMatcher<io.restassured.response.Response>) response1 -> equalTo(status));
+        response.body("status", (ResponseAwareMatcher) response1 -> equalTo(status));
     }
 }
