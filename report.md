@@ -6,6 +6,11 @@
 
 Отчеты:
 
-[https://github.com/l75800/diplom2.0/issues6/][Gradle]
-[https://github.com/l75800/diplom2.0/issues7/][Allure]
+Gradle: https://github.com/l75800/diplom2.0/issues6/
+
+Allure: https://github.com/l75800/diplom2.0/issues7/
+
+Рекомендации:
+* Исправления ошибок;
+* После исправления, проверить на повторном тестировании
 
